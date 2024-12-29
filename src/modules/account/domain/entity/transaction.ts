@@ -18,6 +18,7 @@ export class Transaction {
   private value: number;
   private accountId: string;
   private categoryId?: string;
+  private notes?: string;
 
   private constructor(props: BuildTransactionProps) {
     this.id = new ID(props.id);

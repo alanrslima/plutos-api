@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "node16", // Native ES modules support
+    "moduleResolution": "node16", // Module resolution aligned with ESM in Node.js
+    "outDir": "./dist",
+    "strict": true, // Enable strict type checking
+    "esModuleInterop": true, // Ensure compatibility with CommonJS modules
+    "skipLibCheck": true, // Skip type checks on declaration files
+    "forceConsistentCasingInFileNames": true // Enforce case-sensitive imports
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

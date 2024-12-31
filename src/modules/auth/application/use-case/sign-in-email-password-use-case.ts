@@ -15,9 +15,6 @@ export class SignInEmailPasswordUseCase implements UseCase<Input, Output> {
     if (!user) {
       throw new InvalidCredentialsError();
     }
-    if (user.getStatus() !== "approved") {
-      throw new InvalidCredentialsError();
-    }
     const session = UserSession.createWithPassword({
       rawPassword: input.password,
       user,

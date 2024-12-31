@@ -6,7 +6,7 @@ const envVariables = {
     "Ambiente da aplicação. Valores suportados = development | staging | production",
   PORT: "Porta que a api irá utilizar",
   HOST: "Url da aplicação",
-  MYSQL_HOSTS: "Host do banco de dados Mysql",
+  MYSQL_HOST: "Host do banco de dados Mysql",
   MYSQL_USER: "Usuário do banco de dados Mysql",
   MYSQL_PASSWORD: "Senha do banco de dados Mysql",
   MYSQL_DATABASE: "Nome do database do banco de dados Mysql",

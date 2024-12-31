@@ -1,8 +1,8 @@
+import "reflect-metadata";
 import { env } from "process";
-import { mysqlDatabase } from "../modules/common";
+import { MysqlDataSource } from "../modules/common";
 
-mysqlDatabase
-  .connect()
+MysqlDataSource.initialize()
   .then(async () => {
     console.log("Succesfully connected to mysql database!");
     const app = (await import("./config/app")).default;

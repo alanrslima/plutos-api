@@ -17,7 +17,7 @@ class MysqlDatabase {
       database: env.MYSQL_DATABASE,
       password: env.MYSQL_PASSWORD,
       port: Number(env.MYSQL_PORT),
-      host: env.MYSQL_HOSTS,
+      host: env.MYSQL_HOST,
     };
     this.pool = mysql.createPool(this.accessOptions);
   }

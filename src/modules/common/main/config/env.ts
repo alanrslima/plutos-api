@@ -1,20 +1,21 @@
-import * as dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 const envVariables = {
   NODE_ENV:
-    "Ambiente da aplicação. Valores suportados = development | staging | production",
-  PORT: "Porta que a api irá utilizar",
-  HOST: "Url da aplicação",
-  MYSQL_HOST: "Host do banco de dados Mysql",
-  MYSQL_USER: "Usuário do banco de dados Mysql",
-  MYSQL_PASSWORD: "Senha do banco de dados Mysql",
-  MYSQL_DATABASE: "Nome do database do banco de dados Mysql",
-  MYSQL_PORT: "Porta do banco de dados Mysql",
-  JWT_SECRET: "Chave privada para os tokens JWT",
+    'Ambiente da aplicação. Valores suportados = development | staging | production',
+  PORT: 'Porta que a api irá utilizar',
+  MYSQL_HOST: 'Host do banco de dados Mysql',
+  MYSQL_USER: 'Usuário do banco de dados Mysql',
+  MYSQL_PASSWORD: 'Senha do banco de dados Mysql',
+  MYSQL_DATABASE: 'Nome do database do banco de dados Mysql',
+  MYSQL_PORT: 'Porta do banco de dados Mysql',
+  JWT_SECRET: 'Chave privada para os tokens JWT',
 };
 
-const envsMapper: { [key in keyof typeof envVariables]: any } = {} as any;
+const envsMapper: { [key in keyof typeof envVariables]: string } = {} as {
+  [key in keyof typeof envVariables]: string;
+};
 
 Object.keys(envVariables).map((key) => {
   if (!process.env[key]?.length) {

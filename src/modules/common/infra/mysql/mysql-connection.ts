@@ -1,9 +1,9 @@
-import mysql, { ConnectionOptions, Pool } from "mysql2/promise";
-import { env } from "../../main/config/env";
+import mysql, { ConnectionOptions, Pool } from 'mysql2/promise';
+import { env } from '../../main/config/env';
 
 type QueryOptions = {
   sql: string;
-  values?: any | any[] | { [param: string]: any };
+  values?: unknown | { [param: string]: unknown };
   namedPlaceholders?: boolean;
 };
 
@@ -27,7 +27,7 @@ class MysqlDatabase {
   }
 
   async makeTransaction(
-    fn: (connection: mysql.PoolConnection) => Promise<void>
+    fn: (connection: mysql.PoolConnection) => Promise<void>,
   ) {
     const connection = await this.pool.getConnection();
     try {
@@ -46,7 +46,7 @@ class MysqlDatabase {
     const connection = await this.pool.getConnection();
     const [response] = await connection.query(props);
     this.pool.releaseConnection(connection);
-    return response as any[];
+    return response as unknown[];
   }
 }
 

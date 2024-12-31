@@ -1,6 +1,6 @@
-import { availablePermissions } from "./available-permissions";
+import { availablePermissions } from './available-permissions';
 
-type ids = "admin";
+type ids = 'admin';
 
 type AvailableRolesProps = {
   [key in ids]: {
@@ -12,8 +12,10 @@ type AvailableRolesProps = {
 
 export const availableRoles: AvailableRolesProps = Object.freeze({
   admin: {
-    name: "Administrador",
-    description: "O usuário possui todas as permissões do sistema",
-    permissions: Object.keys(availablePermissions).map((key) => key as any),
+    name: 'Administrador',
+    description: 'O usuário possui todas as permissões do sistema',
+    permissions: Object.keys(availablePermissions).map(
+      (key) => key as keyof typeof availablePermissions,
+    ),
   },
 });

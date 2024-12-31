@@ -1,21 +1,21 @@
-import { HttpResponse, Middleware, ok } from "../../../common";
-import { ForbiddenError } from "../../error/forbidden-error";
+import { HttpResponse, Middleware, ok } from '../../../common';
+import { ForbiddenError } from '../../error/forbidden-error';
 
-export class CanMiddleware implements Middleware {
+export class CanMiddleware implements Middleware<AuthMiddlewareRequest> {
   constructor(private readonly permissions: string[]) {}
 
   private canAccess(userPermissions?: string[]) {
     for (let index = 0; index < this.permissions.length; index++) {
       const permission = this.permissions[index];
       const hasPermission = userPermissions?.some(
-        (userPermission) => userPermission === permission
+        (userPermission) => userPermission === permission,
       );
       if (!hasPermission) return false;
     }
     return true;
   }
 
-  async handle(request: AuthMiddlewareRequest): Promise<HttpResponse<any>> {
+  async handle(request: AuthMiddlewareRequest): Promise<HttpResponse<unknown>> {
     const { session } = request;
     if (this.canAccess(session?.permissions)) {
       return ok({});
@@ -25,11 +25,13 @@ export class CanMiddleware implements Middleware {
   }
 }
 
+export type AuthMiddlewareSession = {
+  id: string;
+  clientId: string;
+  clientType: string;
+  permissions: string[];
+};
+
 export type AuthMiddlewareRequest = {
-  session: {
-    id: string;
-    clientId: string;
-    clientType: string;
-    permissions: string[];
-  };
+  session: AuthMiddlewareSession;
 };

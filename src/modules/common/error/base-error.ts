@@ -2,7 +2,7 @@ export type BaseErrorSerializeProps = {
   message: string;
   field?: string;
   description?: string;
-  context?: any;
+  context?: unknown;
 }[];
 
 export abstract class BaseError extends Error {

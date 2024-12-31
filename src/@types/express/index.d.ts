@@ -9,7 +9,6 @@ type FileDTO = {
 
 declare namespace Express {
   export interface Request {
-    user: any;
     session?: {
       id: string;
       clientId: string;
@@ -26,8 +25,8 @@ declare namespace Express {
     responser: (
       status: number,
       message: string,
-      data: any,
-      error: any,
+      data: unknown,
+      error: unknown,
       type: string
     ) => void;
   }

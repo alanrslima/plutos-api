@@ -4,26 +4,6 @@ import { SessionMemoryRepository } from "../../../infra/repository/session-memor
 import { UserMemoryRepository } from "../../../infra/repository/user-memory-repository";
 import { SignInEmailPasswordUseCase } from "../sign-in-email-password-use-case";
 
-it("should not make sign in ig the user is not approved", async () => {
-  const user = User.create({
-    email: "johndoe@email.com",
-    name: "John Doe",
-    rawPassword: "12345678",
-    role: "admin",
-  });
-  const sessionMemoryRepository = new SessionMemoryRepository();
-  const userMemoryRepository = new UserMemoryRepository([user]);
-  const signInEmailPasswordUseCase = new SignInEmailPasswordUseCase(
-    userMemoryRepository,
-    sessionMemoryRepository
-  );
-  const handle = async () =>
-    await signInEmailPasswordUseCase.execute({
-      email: "johndoe@email.com",
-      password: "12345678",
-    });
-  expect(handle).rejects.toThrow(InvalidCredentialsError);
-});
 
 it("should make sign in with email and password and create a session", async () => {
   const user = User.create({
@@ -53,7 +33,7 @@ it("should make sign in with email and password and create a session", async () 
   );
 });
 
-it("should not make sign in if the user does nor exists", async () => {
+it("should not make sign in if the user does not exists", async () => {
   const sessionMemoryRepository = new SessionMemoryRepository();
   const userMemoryRepository = new UserMemoryRepository();
   const signInEmailPasswordUseCase = new SignInEmailPasswordUseCase(

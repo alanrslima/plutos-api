@@ -1,5 +1,4 @@
 import { ID } from "../value-object/id";
-import { Account } from "./account";
 
 type CreateTransactionProps = {
   date: Date;

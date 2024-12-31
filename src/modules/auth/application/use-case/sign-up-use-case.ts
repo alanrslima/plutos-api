@@ -1,7 +1,7 @@
-import { UseCase } from "../../../account/application/contract/use-case";
-import { User } from "../../domain/entity/user";
-import { UserAlreadyExistsError } from "../../error/user-already-exists-error";
-import { UserRepository } from "../contract/repository/user-repository";
+import { UseCase } from '../../../account/application/contract/use-case';
+import { User } from '../../domain/entity/user';
+import { UserAlreadyExistsError } from '../../error/user-already-exists-error';
+import { UserRepository } from '../contract/repository/user-repository';
 
 export class SignUpUseCase implements UseCase<Input, Output> {
   constructor(private readonly userRepository: UserRepository) {}
@@ -15,16 +15,16 @@ export class SignUpUseCase implements UseCase<Input, Output> {
       email: input.email,
       name: input.name,
       rawPassword: input.password,
-      role: "admin",
+      role: 'admin',
     });
     await this.userRepository.create(newUser);
   }
 }
 
-type Input = {
+export type Input = {
   name: string;
   email: string;
   password: string;
 };
 
-type Output = void;
+export type Output = void;

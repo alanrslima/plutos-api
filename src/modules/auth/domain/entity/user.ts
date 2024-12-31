@@ -1,10 +1,11 @@
-import { Email } from "../value-object/email";
-import { Id } from "../value-object/id";
-import { Name } from "../value-object/name";
-import { Password } from "../value-object/password";
-import { Role } from "./role";
+import { availableRoles } from '../contract/available-roles';
+import { Email } from '../value-object/email';
+import { Id } from '../value-object/id';
+import { Name } from '../value-object/name';
+import { Password } from '../value-object/password';
+import { Role } from './role';
 
-type UserStatusTypes = "waiting_approvement" | "approved" | "denied";
+type UserStatusTypes = 'waiting_approvement' | 'approved' | 'denied';
 
 type CreateProps = {
   name: string;
@@ -13,14 +14,14 @@ type CreateProps = {
   role: string;
 };
 
-type BuildProps = Omit<CreateProps, "rawPassword"> & {
+type BuildProps = Omit<CreateProps, 'rawPassword'> & {
   id: string;
   password?: string;
   salt?: string;
   status: UserStatusTypes;
 };
 
-type ConstructorProps = Omit<BuildProps, "password" | "salt"> & {
+type ConstructorProps = Omit<BuildProps, 'password' | 'salt'> & {
   password?: Password;
 };
 
@@ -37,7 +38,7 @@ export class User {
     this.name = new Name(props.name);
     this.email = new Email(props.email);
     this.password = props.password;
-    this.role = new Role({ name: props.role as any });
+    this.role = new Role({ name: props.role as keyof typeof availableRoles });
     this.status = props.status;
   }
 
@@ -45,7 +46,7 @@ export class User {
     return new User({
       ...props,
       id: new Id().getValue(),
-      status: "waiting_approvement",
+      status: 'waiting_approvement',
       password: props.rawPassword
         ? Password.create({ rawPassword: props.rawPassword })
         : undefined,
@@ -99,14 +100,14 @@ export class User {
   }
 
   setRole(role: string) {
-    this.role = new Role({ name: role as any });
+    this.role = new Role({ name: role as keyof typeof availableRoles });
   }
 
   approve() {
-    this.status = "approved";
+    this.status = 'approved';
   }
 
   deny() {
-    this.status = "denied";
+    this.status = 'denied';
   }
 }

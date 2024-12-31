@@ -1,7 +1,9 @@
 import { type Request, type Response, type NextFunction } from 'express';
 import { Middleware } from '../../presentation/contract/middleware';
 
-export const adaptMiddleware = (middleware: Middleware) => {
+export const adaptMiddleware = (
+  middleware: Middleware<unknown, { statusCode: number; message: string }>,
+) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     const request = {
       accessToken: req.headers?.['x-access-token'],

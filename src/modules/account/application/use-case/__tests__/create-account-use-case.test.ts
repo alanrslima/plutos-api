@@ -1,4 +1,4 @@
-import { MemoryAccountRepository } from '../../../infra/repository/memory-account-repository';
+import { MemoryAccountRepository } from '../../../infra/repository/account-memory-repository';
 import { CreateAccountUseCase } from '../create-account-use-case';
 
 it('should create an account', async () => {

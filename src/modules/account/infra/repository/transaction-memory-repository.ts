@@ -2,7 +2,7 @@ import { TransactionRepository } from '../../application/contract/repository/tra
 import { Transaction } from '../../domain/entity/transaction';
 
 export class TransactionMemoryRepository implements TransactionRepository {
-  private data: Transaction[];
+  public data: Transaction[];
 
   constructor(mock?: Transaction[]) {
     this.data = mock || [];

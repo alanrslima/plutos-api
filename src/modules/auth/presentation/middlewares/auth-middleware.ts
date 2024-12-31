@@ -5,7 +5,9 @@ import { SessionRepository } from '../../application/contract/repository/session
 import { NotAuthorizedError } from '../../error/not-authorized-error';
 import { SessionDTO } from '../../application/contract/dto/session-dto';
 
-export class AuthMiddleware implements Middleware<AuthMiddlewareRequest> {
+export class AuthMiddleware
+  implements Middleware<AuthMiddlewareRequest, unknown>
+{
   constructor(
     private readonly userRepository: UserRepository,
     private readonly sessionRepository: SessionRepository,

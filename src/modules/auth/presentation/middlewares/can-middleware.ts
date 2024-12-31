@@ -1,7 +1,9 @@
 import { HttpResponse, Middleware, ok } from '../../../common';
 import { ForbiddenError } from '../../error/forbidden-error';
 
-export class CanMiddleware implements Middleware<AuthMiddlewareRequest> {
+export class CanMiddleware
+  implements Middleware<AuthMiddlewareRequest, unknown>
+{
   constructor(private readonly permissions: string[]) {}
 
   private canAccess(userPermissions?: string[]) {

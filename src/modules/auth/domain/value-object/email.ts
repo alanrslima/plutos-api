@@ -1,4 +1,4 @@
-import { InvalidEmailError } from "../../error/invalid-email-error";
+import { InvalidEmailError } from '../../error/invalid-email-error';
 
 export class Email {
   private value: string;
@@ -11,7 +11,7 @@ export class Email {
   }
 
   private isValid(value: string) {
-    if (typeof value !== "string" || value?.trim()?.length === 0) {
+    if (typeof value !== 'string' || value?.trim()?.length === 0) {
       return false;
     }
     const regex = /\S+@\S+\.\S+/;

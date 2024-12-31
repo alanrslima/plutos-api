@@ -1,4 +1,4 @@
-import { Session } from "../../../domain/entity/session";
+import { Session } from '../../../domain/entity/session';
 
 export interface SessionRepository {
   create(session: Session): Promise<void>;

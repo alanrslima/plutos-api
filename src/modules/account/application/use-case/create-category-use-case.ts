@@ -1,6 +1,6 @@
-import { Category } from "../../domain/entity/category";
-import { CategoryRepository } from "../contract/repository/category-repository";
-import { UseCase } from "../contract/use-case";
+import { Category } from '../../domain/entity/category';
+import { CategoryRepository } from '../contract/repository/category-repository';
+import { UseCase } from '../contract/use-case';
 
 export class CreateCategoryUseCase implements UseCase<Input, Output> {
   constructor(private readonly categoryRepository: CategoryRepository) {}

@@ -1,4 +1,4 @@
-import { InvalidNameError } from "../../error/invalid-name-error";
+import { InvalidNameError } from '../../error/invalid-name-error';
 
 export class Name {
   private value: string;
@@ -11,7 +11,7 @@ export class Name {
   }
 
   private isValid(value: string) {
-    if (typeof value !== "string" || value?.trim()?.length === 0) {
+    if (typeof value !== 'string' || value?.trim()?.length === 0) {
       return false;
     }
     return true;

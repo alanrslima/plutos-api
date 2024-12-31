@@ -1,7 +1,7 @@
-import { InvalidCredentialsError } from "../../error/invalid-credentials-error";
-import { Id } from "../value-object/id";
-import { Session } from "./session";
-import { User } from "./user";
+import { InvalidCredentialsError } from '../../error/invalid-credentials-error';
+import { Id } from '../value-object/id';
+import { Session } from './session';
+import { User } from './user';
 
 type CreateWithoutPasswordProps = {
   user: User;
@@ -17,11 +17,11 @@ export class UserSession extends Session {
       expiresAt: this.generateExpiresAt(),
       token: this.createToken({
         clientId: props.user.getId(),
-        clientType: "user",
+        clientType: 'user',
       }),
       id: new Id().getValue(),
       clientId: props.user.getId(),
-      clientType: "user",
+      clientType: 'user',
     });
   }
 
@@ -34,11 +34,11 @@ export class UserSession extends Session {
       expiresAt: this.generateExpiresAt(),
       token: this.createToken({
         clientId: props.user.getId(),
-        clientType: "user",
+        clientType: 'user',
       }),
       id: new Id().getValue(),
       clientId: props.user.getId(),
-      clientType: "user",
+      clientType: 'user',
     });
   }
 }

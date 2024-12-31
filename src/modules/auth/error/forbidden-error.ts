@@ -1,10 +1,10 @@
-import { BaseError } from "../../common";
+import { BaseError } from '../../common';
 
 export class ForbiddenError extends BaseError {
   statusCode = 403;
 
   constructor() {
-    super("Forbidden");
+    super('Forbidden');
     Object.setPrototypeOf(this, ForbiddenError.prototype);
   }
 
@@ -12,7 +12,7 @@ export class ForbiddenError extends BaseError {
     return [
       {
         message:
-          "O usuário não possui permissão para acessar este recurso ou executar esta ação",
+          'O usuário não possui permissão para acessar este recurso ou executar esta ação',
       },
     ];
   }

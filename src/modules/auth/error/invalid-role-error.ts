@@ -1,14 +1,14 @@
-import { BaseError, BaseErrorSerializeProps } from "../../common";
+import { BaseError, BaseErrorSerializeProps } from '../../common';
 
 export class InvalidRoleError extends BaseError {
   statusCode = 400;
 
   constructor() {
-    super("Invalid role");
+    super('Invalid role');
     Object.setPrototypeOf(this, InvalidRoleError.prototype);
   }
 
   serialize(): BaseErrorSerializeProps {
-    return [{ message: "Invalid role" }];
+    return [{ message: 'Invalid role' }];
   }
 }

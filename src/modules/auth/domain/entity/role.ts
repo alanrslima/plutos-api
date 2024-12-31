@@ -1,5 +1,5 @@
-import { InvalidRoleError } from "../../error/invalid-role-error";
-import { availableRoles } from "../contract/available-roles";
+import { InvalidRoleError } from '../../error/invalid-role-error';
+import { availableRoles } from '../contract/available-roles';
 
 type CreateProps = {
   name: keyof typeof availableRoles;

@@ -1,14 +1,14 @@
-import { BaseError, BaseErrorSerializeProps } from "../../common";
+import { BaseError, BaseErrorSerializeProps } from '../../common';
 
 export class SessionNotFoundError extends BaseError {
   statusCode = 400;
 
   constructor() {
-    super("Session not found");
+    super('Session not found');
     Object.setPrototypeOf(this, SessionNotFoundError.prototype);
   }
 
   serialize(): BaseErrorSerializeProps {
-    return [{ message: "Session not found" }];
+    return [{ message: 'Session not found' }];
   }
 }

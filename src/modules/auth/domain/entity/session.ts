@@ -1,9 +1,9 @@
-import jwt from "jsonwebtoken";
-import { env } from "../../../common";
+import jwt from 'jsonwebtoken';
+import { env } from '../../../common';
 
 const EXPIRES_IN_SECONDS = 60 * 60 * 24; // 1 dia
 
-export type ClientTypes = "user" | "device";
+export type ClientTypes = 'user' | 'device';
 
 type CreateProps = {
   token: string;

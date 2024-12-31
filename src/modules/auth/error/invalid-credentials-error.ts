@@ -1,10 +1,10 @@
-import { BaseError } from "../../common";
+import { BaseError } from '../../common';
 
 export class InvalidCredentialsError extends BaseError {
   statusCode = 400;
 
   constructor() {
-    super("Invalid credentials");
+    super('Invalid credentials');
     Object.setPrototypeOf(this, InvalidCredentialsError.prototype);
   }
 
@@ -12,7 +12,7 @@ export class InvalidCredentialsError extends BaseError {
     return [
       {
         message:
-          "Credênciais inválidas! Por favor, verifique seu usuário e senha e tente novamente",
+          'Credênciais inválidas! Por favor, verifique seu usuário e senha e tente novamente',
       },
     ];
   }

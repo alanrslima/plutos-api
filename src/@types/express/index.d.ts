@@ -27,7 +27,7 @@ declare namespace Express {
       message: string,
       data: unknown,
       error: unknown,
-      type: string
+      type: string,
     ) => void;
   }
 }

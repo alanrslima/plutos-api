@@ -1,14 +1,14 @@
-import { BaseError, BaseErrorSerializeProps } from "../../common";
+import { BaseError, BaseErrorSerializeProps } from '../../common';
 
 export class InvalidNameError extends BaseError {
   statusCode = 400;
 
   constructor() {
-    super("Invalid name");
+    super('Invalid name');
     Object.setPrototypeOf(this, InvalidNameError.prototype);
   }
 
   serialize(): BaseErrorSerializeProps {
-    return [{ message: "Invalid name" }];
+    return [{ message: 'Invalid name' }];
   }
 }

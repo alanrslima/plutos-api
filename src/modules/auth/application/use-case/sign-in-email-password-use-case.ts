@@ -1,13 +1,13 @@
-import { UseCase } from "../../../account/application/contract/use-case";
-import { UserSession } from "../../domain/entity/user-session";
-import { InvalidCredentialsError } from "../../error/invalid-credentials-error";
-import { SessionRepository } from "../contract/repository/session-repository";
-import { UserRepository } from "../contract/repository/user-repository";
+import { UseCase } from '../../../account/application/contract/use-case';
+import { UserSession } from '../../domain/entity/user-session';
+import { InvalidCredentialsError } from '../../error/invalid-credentials-error';
+import { SessionRepository } from '../contract/repository/session-repository';
+import { UserRepository } from '../contract/repository/user-repository';
 
 export class SignInEmailPasswordUseCase implements UseCase<Input, Output> {
   constructor(
     private readonly userRepository: UserRepository,
-    private readonly sessionRepository: SessionRepository
+    private readonly sessionRepository: SessionRepository,
   ) {}
 
   async execute(input: Input): Promise<Output> {

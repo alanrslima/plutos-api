@@ -1,7 +1,7 @@
-import { MysqlDataSource } from "../../../common";
-import { AccountRepository } from "../../application/contract/repository/account-repository";
-import { Account } from "../../domain/entity/account";
-import { AccountNotFoundError } from "../../error/account-not-found-error";
+import { MysqlDataSource } from '../../../common';
+import { AccountRepository } from '../../application/contract/repository/account-repository';
+import { Account } from '../../domain/entity/account';
+import { AccountNotFoundError } from '../../error/account-not-found-error';
 
 export class AccountMysqlRepository implements AccountRepository {
   public data: Account[];
@@ -30,7 +30,7 @@ export class AccountMysqlRepository implements AccountRepository {
 
   async update(account: Account): Promise<void> {
     this.data = this.data.filter((item) =>
-      item.getId() === account.getId() ? account : item
+      item.getId() === account.getId() ? account : item,
     );
   }
 }

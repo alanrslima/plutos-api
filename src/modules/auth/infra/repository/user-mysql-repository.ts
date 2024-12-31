@@ -1,7 +1,7 @@
-import { MysqlDataSource } from "../../../common";
-import { UserRepository } from "../../application/contract/repository/user-repository";
-import { User } from "../../domain/entity/user";
-import { UserNotFoundError } from "../../error/user-not-found-error";
+import { MysqlDataSource } from '../../../common';
+import { UserRepository } from '../../application/contract/repository/user-repository';
+import { User } from '../../domain/entity/user';
+import { UserNotFoundError } from '../../error/user-not-found-error';
 
 export class UserMysqlRepository implements UserRepository {
   async create(user: User): Promise<void> {

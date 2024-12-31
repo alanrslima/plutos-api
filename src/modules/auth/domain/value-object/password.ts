@@ -1,5 +1,5 @@
-import crypto from "node:crypto";
-import { InvalidPasswordError } from "../../error/invalid-password-error";
+import crypto from 'node:crypto';
+import { InvalidPasswordError } from '../../error/invalid-password-error';
 
 export class Password {
   private hash: string;
@@ -12,7 +12,7 @@ export class Password {
 
   static create(values: { rawPassword: string }) {
     Password.checkPolicy(values.rawPassword);
-    const salt = crypto.randomBytes(16).toString("hex");
+    const salt = crypto.randomBytes(16).toString('hex');
     const hash = Password.generateHash({
       rawPassword: values.rawPassword,
       salt,

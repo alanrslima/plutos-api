@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from "express";
-import { Controller } from "../../presentation/contract/controller";
+import { NextFunction, Request, Response } from 'express';
+import { Controller } from '../../presentation/contract/controller';
 
 export const adaptRoute = (controller: Controller) => {
   return async (req: Request, res: Response, next: NextFunction) => {

@@ -28,74 +28,74 @@ export type ConstantEnvProps = {
 export const constants: ConstantEnvProps = {
   development: {
     openId: {
-      issuer: "https://id.qa.globoi.com/auth/realms/globoi",
+      issuer: 'https://id.qa.globoi.com/auth/realms/globoi',
       authorizationEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/auth",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/auth',
       tokenEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token',
       tokenIntrospectionEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token/introspect",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token/introspect',
       userinfoEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/userinfo",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/userinfo',
       endSessionEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/logout",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/logout',
       jwksUri:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/certs",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/certs',
     },
     vault: {
       publicUrl:
-        "https://i.s3.glbimg.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a",
+        'https://i.s3.glbimg.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a',
       adminUrl:
-        "https://api.s3.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a",
-      authUrl: "https://auth.s3.qa.globoi.com:5000/v3",
+        'https://api.s3.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a',
+      authUrl: 'https://auth.s3.qa.globoi.com:5000/v3',
     },
   },
   production: {
     openId: {
-      issuer: "https://id.qa.globoi.com/auth/realms/globoi",
+      issuer: 'https://id.qa.globoi.com/auth/realms/globoi',
       authorizationEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/auth",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/auth',
       tokenEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token',
       tokenIntrospectionEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token/introspect",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token/introspect',
       userinfoEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/userinfo",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/userinfo',
       endSessionEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/logout",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/logout',
       jwksUri:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/certs",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/certs',
     },
     vault: {
       publicUrl:
-        "https://i.s3.glbimg.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a",
+        'https://i.s3.glbimg.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a',
       adminUrl:
-        "https://api.s3.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a",
-      authUrl: "https://auth.s3.qa.globoi.com:5000/v3",
+        'https://api.s3.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a',
+      authUrl: 'https://auth.s3.qa.globoi.com:5000/v3',
     },
   },
   staging: {
     openId: {
-      issuer: "https://id.qa.globoi.com/auth/realms/globoi",
+      issuer: 'https://id.qa.globoi.com/auth/realms/globoi',
       authorizationEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/auth",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/auth',
       tokenEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token',
       tokenIntrospectionEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token/introspect",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/token/introspect',
       userinfoEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/userinfo",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/userinfo',
       endSessionEndpoint:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/logout",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/logout',
       jwksUri:
-        "https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/certs",
+        'https://id.qa.globoi.com/auth/realms/globoi/protocol/openid-connect/certs',
     },
     vault: {
       publicUrl:
-        "https://i.s3.glbimg.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a",
+        'https://i.s3.glbimg.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a',
       adminUrl:
-        "https://api.s3.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a",
-      authUrl: "https://auth.s3.qa.globoi.com:5000/v3",
+        'https://api.s3.qa.globoi.com/v1/AUTH_ac3bc439fc6549cbaf873a89c6b5224a',
+      authUrl: 'https://auth.s3.qa.globoi.com:5000/v3',
     },
   },
 };

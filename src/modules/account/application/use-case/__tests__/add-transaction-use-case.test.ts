@@ -1,28 +1,28 @@
-import { Account } from "../../../domain/entity/account";
-import { Category } from "../../../domain/entity/category";
-import { AccountForbiddenError } from "../../../error/account-forbidden-error";
-import { AccountNotFoundError } from "../../../error/account-not-found-error";
-import { CategoryForbiddenError } from "../../../error/category-forbidden-error";
-import { CategoryNotFoundError } from "../../../error/category-not-found-error";
-import { MemoryAccountRepository } from "../../../infra/repository/memory-account-repository";
-import { MemoryCategoryRepository } from "../../../infra/repository/memory-category-repository";
-import { MemoryTransactionRepository } from "../../../infra/repository/memory-transaction-repository";
-import { AddTransactionUseCase } from "../add-transaction-use-case";
+import { Account } from '../../../domain/entity/account';
+import { Category } from '../../../domain/entity/category';
+import { AccountForbiddenError } from '../../../error/account-forbidden-error';
+import { AccountNotFoundError } from '../../../error/account-not-found-error';
+import { CategoryForbiddenError } from '../../../error/category-forbidden-error';
+import { CategoryNotFoundError } from '../../../error/category-not-found-error';
+import { MemoryAccountRepository } from '../../../infra/repository/memory-account-repository';
+import { MemoryCategoryRepository } from '../../../infra/repository/memory-category-repository';
+import { MemoryTransactionRepository } from '../../../infra/repository/memory-transaction-repository';
+import { AddTransactionUseCase } from '../add-transaction-use-case';
 
-it("should throw forbidden error if the account does not exists", async () => {
+it('should throw forbidden error if the account does not exists', async () => {
   const memoryAccountRepository = new MemoryAccountRepository();
   const memoryTransactionRepository = new MemoryTransactionRepository();
   const memoryCategoryRepository = new MemoryCategoryRepository();
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
-    memoryTransactionRepository
+    memoryTransactionRepository,
   );
   try {
     await addTransactionUseCase.execute({
-      accountId: "123",
+      accountId: '123',
       date: new Date().toISOString(),
-      userId: "1",
+      userId: '1',
       value: 20,
     });
   } catch (error) {
@@ -32,12 +32,12 @@ it("should throw forbidden error if the account does not exists", async () => {
   }
 });
 
-it("should throw forbidden error if the user does not have access to the account", async () => {
+it('should throw forbidden error if the user does not have access to the account', async () => {
   const account = Account.create({
-    currency: "US",
+    currency: 'US',
     initialBalance: 10,
-    name: "account name",
-    ownerId: "2",
+    name: 'account name',
+    ownerId: '2',
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new MemoryTransactionRepository();
@@ -45,13 +45,13 @@ it("should throw forbidden error if the user does not have access to the account
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
-    memoryTransactionRepository
+    memoryTransactionRepository,
   );
   try {
     await addTransactionUseCase.execute({
       accountId: account.getId(),
       date: new Date().toISOString(),
-      userId: "1",
+      userId: '1',
       value: 20,
     });
   } catch (error) {
@@ -61,12 +61,12 @@ it("should throw forbidden error if the user does not have access to the account
   }
 });
 
-it("should create transaction", async () => {
+it('should create transaction', async () => {
   const account = Account.create({
-    currency: "US",
+    currency: 'US',
     initialBalance: 10,
-    name: "account name",
-    ownerId: "2",
+    name: 'account name',
+    ownerId: '2',
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new MemoryTransactionRepository();
@@ -74,13 +74,13 @@ it("should create transaction", async () => {
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
-    memoryTransactionRepository
+    memoryTransactionRepository,
   );
   const date = new Date().toISOString();
   await addTransactionUseCase.execute({
     accountId: account.getId(),
     date,
-    userId: "2",
+    userId: '2',
     value: 20,
   });
   expect(memoryTransactionRepository.data).toHaveLength(1);
@@ -89,12 +89,12 @@ it("should create transaction", async () => {
   expect(memoryTransactionRepository.data[0].getId()).toBeDefined();
 });
 
-it("should update account balance", async () => {
+it('should update account balance', async () => {
   const account = Account.create({
-    currency: "US",
+    currency: 'US',
     initialBalance: 10,
-    name: "account name",
-    ownerId: "2",
+    name: 'account name',
+    ownerId: '2',
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new MemoryTransactionRepository();
@@ -102,12 +102,12 @@ it("should update account balance", async () => {
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
-    memoryTransactionRepository
+    memoryTransactionRepository,
   );
   await addTransactionUseCase.execute({
     accountId: account.getId(),
     date: new Date().toISOString(),
-    userId: "2",
+    userId: '2',
     value: 20,
   });
   expect(memoryTransactionRepository.data).toHaveLength(1);
@@ -116,12 +116,12 @@ it("should update account balance", async () => {
   expect(memoryAccountRepository.data[0].getBalance()).toEqual(30);
 });
 
-it("should throw an error if the category does not exists", async () => {
+it('should throw an error if the category does not exists', async () => {
   const account = Account.create({
-    currency: "US",
+    currency: 'US',
     initialBalance: 10,
-    name: "account name",
-    ownerId: "2",
+    name: 'account name',
+    ownerId: '2',
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new MemoryTransactionRepository();
@@ -129,15 +129,15 @@ it("should throw an error if the category does not exists", async () => {
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
-    memoryTransactionRepository
+    memoryTransactionRepository,
   );
   try {
     await addTransactionUseCase.execute({
       accountId: account.getId(),
       date: new Date().toISOString(),
-      userId: "2",
+      userId: '2',
       value: 20,
-      categoryId: "123",
+      categoryId: '123',
     });
   } catch (error) {
     expect(error).toBeDefined();
@@ -145,27 +145,27 @@ it("should throw an error if the category does not exists", async () => {
   }
 });
 
-it("should throw an error if the user does not have access to the category", async () => {
+it('should throw an error if the user does not have access to the category', async () => {
   const account = Account.create({
-    currency: "US",
+    currency: 'US',
     initialBalance: 10,
-    name: "account name",
-    ownerId: "2",
+    name: 'account name',
+    ownerId: '2',
   });
-  const category = Category.create({ name: "category #1", userId: "1" });
+  const category = Category.create({ name: 'category #1', userId: '1' });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new MemoryTransactionRepository();
   const memoryCategoryRepository = new MemoryCategoryRepository([category]);
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
-    memoryTransactionRepository
+    memoryTransactionRepository,
   );
   try {
     await addTransactionUseCase.execute({
       accountId: account.getId(),
       date: new Date().toISOString(),
-      userId: "2",
+      userId: '2',
       value: 20,
       categoryId: category.getId(),
     });

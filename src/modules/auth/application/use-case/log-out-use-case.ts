@@ -1,5 +1,5 @@
-import { UseCase } from "../../../account/application/contract/use-case";
-import { SessionRepository } from "../contract/repository/session-repository";
+import { UseCase } from '../../../account/application/contract/use-case';
+import { SessionRepository } from '../contract/repository/session-repository';
 
 export class LogOutUseCase implements UseCase<Input, Output> {
   constructor(private readonly sessionRepository: SessionRepository) {}

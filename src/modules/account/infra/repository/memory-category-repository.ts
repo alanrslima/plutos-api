@@ -1,6 +1,6 @@
-import { CategoryRepository } from "../../application/contract/repository/category-repository";
-import { Category } from "../../domain/entity/category";
-import { CategoryNotFoundError } from "../../error/category-not-found-error";
+import { CategoryRepository } from '../../application/contract/repository/category-repository';
+import { Category } from '../../domain/entity/category';
+import { CategoryNotFoundError } from '../../error/category-not-found-error';
 
 export class MemoryCategoryRepository implements CategoryRepository {
   public data: Category[];

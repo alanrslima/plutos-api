@@ -1,2 +1,2 @@
-export * from "./mysql-connection";
-export * from "./data-source";
+export * from './mysql-connection';
+export * from './data-source';

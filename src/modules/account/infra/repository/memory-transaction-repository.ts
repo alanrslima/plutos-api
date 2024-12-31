@@ -1,5 +1,5 @@
-import { TransactionRepository } from "../../application/contract/repository/transaction-repository";
-import { Transaction } from "../../domain/entity/transaction";
+import { TransactionRepository } from '../../application/contract/repository/transaction-repository';
+import { Transaction } from '../../domain/entity/transaction';
 
 export class MemoryTransactionRepository implements TransactionRepository {
   public data: Transaction[];

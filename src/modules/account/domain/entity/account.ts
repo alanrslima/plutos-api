@@ -1,5 +1,5 @@
-import { ID } from "../value-object/id";
-import { Transaction } from "./transaction";
+import { ID } from '../value-object/id';
+import { Transaction } from './transaction';
 
 type CreateAccountProps = {
   name: string;

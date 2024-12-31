@@ -1,7 +1,7 @@
-import { Controller } from "../../../../common";
-import { SignUpUseCase } from "../../../application/use-case/sign-up-use-case";
-import { UserMysqlRepository } from "../../../infra/repository/user-mysql-repository";
-import { SignUpController } from "../../../presentation/controller/sign-up-controller";
+import { Controller } from '../../../../common';
+import { SignUpUseCase } from '../../../application/use-case/sign-up-use-case';
+import { UserMysqlRepository } from '../../../infra/repository/user-mysql-repository';
+import { SignUpController } from '../../../presentation/controller/sign-up-controller';
 
 export const signUpControllerFactory = (): Controller => {
   const userRepository = new UserMysqlRepository();

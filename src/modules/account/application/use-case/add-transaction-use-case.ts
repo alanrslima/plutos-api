@@ -1,16 +1,16 @@
-import { Transaction } from "../../domain/entity/transaction";
-import { AccountForbiddenError } from "../../error/account-forbidden-error";
-import { CategoryForbiddenError } from "../../error/category-forbidden-error";
-import { AccountRepository } from "../contract/repository/account-repository";
-import { CategoryRepository } from "../contract/repository/category-repository";
-import { TransactionRepository } from "../contract/repository/transaction-repository";
-import { UseCase } from "../contract/use-case";
+import { Transaction } from '../../domain/entity/transaction';
+import { AccountForbiddenError } from '../../error/account-forbidden-error';
+import { CategoryForbiddenError } from '../../error/category-forbidden-error';
+import { AccountRepository } from '../contract/repository/account-repository';
+import { CategoryRepository } from '../contract/repository/category-repository';
+import { TransactionRepository } from '../contract/repository/transaction-repository';
+import { UseCase } from '../contract/use-case';
 
 export class AddTransactionUseCase implements UseCase<Input, Output> {
   constructor(
     private readonly accountRepository: AccountRepository,
     private readonly categoryRepository: CategoryRepository,
-    private readonly transactionRepository: TransactionRepository
+    private readonly transactionRepository: TransactionRepository,
   ) {}
 
   async execute(input: Input): Promise<void> {

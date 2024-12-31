@@ -1,6 +1,6 @@
-import { UserRepository } from "../../application/contract/repository/user-repository";
-import { User } from "../../domain/entity/user";
-import { UserNotFoundError } from "../../error/user-not-found-error";
+import { UserRepository } from '../../application/contract/repository/user-repository';
+import { User } from '../../domain/entity/user';
+import { UserNotFoundError } from '../../error/user-not-found-error';
 
 export class UserMemoryRepository implements UserRepository {
   private data: User[];
@@ -27,7 +27,7 @@ export class UserMemoryRepository implements UserRepository {
 
   async update(user: User): Promise<void> {
     this.data = this.data.map((item) =>
-      item.getId() === user.getId() ? user : item
+      item.getId() === user.getId() ? user : item,
     );
   }
 

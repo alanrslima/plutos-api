@@ -2,7 +2,7 @@ import { CategoryRepository } from '../../application/contract/repository/catego
 import { Category } from '../../domain/entity/category';
 import { CategoryNotFoundError } from '../../error/category-not-found-error';
 
-export class MemoryCategoryRepository implements CategoryRepository {
+export class CategoryMemoryRepository implements CategoryRepository {
   public data: Category[];
 
   constructor(mock?: Category[]) {

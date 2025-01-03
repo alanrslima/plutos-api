@@ -6,7 +6,7 @@ export class SignInEmailPasswordController implements Controller {
     private readonly signInEmailPasswordUseCase: SignInEmailPasswordUseCase,
   ) {}
 
-  async handle(params: unknown): Promise<HttpResponse<unknown>> {
+  async handle(params: any): Promise<HttpResponse<unknown>> {
     const data = await this.signInEmailPasswordUseCase.execute(params);
     return ok(data);
   }

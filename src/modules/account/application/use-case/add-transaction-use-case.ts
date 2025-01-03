@@ -34,7 +34,7 @@ export class AddTransactionUseCase implements UseCase<Input, Output> {
   }
 }
 
-type Input = {
+export type Input = {
   accountId: string;
   categoryId?: string;
   date: string;
@@ -42,4 +42,4 @@ type Input = {
   userId: string;
 };
 
-type Output = void;
+export type Output = void;

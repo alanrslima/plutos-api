@@ -14,9 +14,9 @@ export class CreateCategoryUseCase implements UseCase<Input, Output> {
   }
 }
 
-type Input = {
+export type Input = {
   name: string;
   userId: string;
 };
 
-type Output = void;
+export type Output = void;

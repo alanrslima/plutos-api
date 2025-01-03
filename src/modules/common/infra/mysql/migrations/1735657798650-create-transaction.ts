@@ -5,11 +5,11 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export class CreateAccount1735584527470 implements MigrationInterface {
+export class CreateTransaction1735657798650 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'account',
+        name: 'transaction',
         columns: [
           {
             name: 'id',
@@ -18,30 +18,31 @@ export class CreateAccount1735584527470 implements MigrationInterface {
             isPrimary: true,
           },
           {
-            name: 'name',
+            name: 'date',
+            type: 'datetime',
+          },
+          {
+            name: 'value',
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
+          },
+          {
+            name: 'notes',
             type: 'varchar',
+            length: '512',
+            isNullable: true,
           },
           {
-            name: 'initial_balance',
-            type: 'decimal',
-            precision: 10,
-            scale: 2,
-          },
-          {
-            name: 'balance',
-            type: 'decimal',
-            precision: 10,
-            scale: 2,
-          },
-          {
-            name: 'owner_id',
+            name: 'account_id',
             type: 'varchar',
             length: '45',
           },
           {
-            name: 'currency',
+            name: 'category_id',
             type: 'varchar',
-            length: '3',
+            length: '45',
+            isNullable: true,
           },
           {
             name: 'created_at',
@@ -52,10 +53,19 @@ export class CreateAccount1735584527470 implements MigrationInterface {
       }),
     );
     await queryRunner.createForeignKey(
-      'account',
+      'transaction',
       new TableForeignKey({
-        columnNames: ['owner_id'],
-        referencedTableName: 'user',
+        columnNames: ['account_id'],
+        referencedTableName: 'account',
+        referencedColumnNames: ['id'],
+        onDelete: 'CASCADE',
+      }),
+    );
+    await queryRunner.createForeignKey(
+      'transaction',
+      new TableForeignKey({
+        columnNames: ['category_id'],
+        referencedTableName: 'category',
         referencedColumnNames: ['id'],
         onDelete: 'CASCADE',
       }),
@@ -63,7 +73,8 @@ export class CreateAccount1735584527470 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('account', 'owner_id');
-    await queryRunner.dropTable('account');
+    await queryRunner.dropForeignKey('transaction', 'account_id');
+    await queryRunner.dropForeignKey('transaction', 'category_id');
+    await queryRunner.dropTable('transaction');
   }
 }

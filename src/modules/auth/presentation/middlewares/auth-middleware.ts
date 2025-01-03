@@ -1,17 +1,13 @@
 import jwt from 'jsonwebtoken';
 import { env, HttpResponse, Middleware, ok } from '../../../common';
 import { UserRepository } from '../../application/contract/repository/user-repository';
-import { SessionRepository } from '../../application/contract/repository/session-repository';
 import { NotAuthorizedError } from '../../error/not-authorized-error';
 import { SessionDTO } from '../../application/contract/dto/session-dto';
 
 export class AuthMiddleware
   implements Middleware<AuthMiddlewareRequest, unknown>
 {
-  constructor(
-    private readonly userRepository: UserRepository,
-    private readonly sessionRepository: SessionRepository,
-  ) {}
+  constructor(private readonly userRepository: UserRepository) {}
 
   private decrypt(ciphertext: string): string {
     const plaintext: unknown = jwt.verify(ciphertext, env.JWT_SECRET);
@@ -31,16 +27,12 @@ export class AuthMiddleware
 
   private async getUserDetails(id: string) {
     const user = await this.userRepository.getById(id);
-    if (user.getStatus() !== 'approved') {
-      throw new NotAuthorizedError();
-    }
     return { name: user.getName(), permissions: user.getPermissions() };
   }
 
   async handle(
     request: AuthMiddlewareRequest,
   ): Promise<HttpResponse<AuthMiddlewareResponse>> {
-    this.sessionRepository.deleteExpired();
     const { authorization } = request;
     if (authorization === undefined) {
       throw new NotAuthorizedError();
@@ -51,10 +43,9 @@ export class AuthMiddleware
       const decoded = this.decode(token);
       const { clientId } = JSON.parse(decoded);
       const { permissions, name } = await this.getUserDetails(clientId);
-      const session = await this.sessionRepository.getByToken(token);
       return ok({
         session: {
-          id: session.getId(),
+          id: clientId,
           user: {
             id: clientId,
             name,

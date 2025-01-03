@@ -5,14 +5,14 @@ import { AccountNotFoundError } from '../../../error/account-not-found-error';
 import { CategoryForbiddenError } from '../../../error/category-forbidden-error';
 import { CategoryNotFoundError } from '../../../error/category-not-found-error';
 import { MemoryAccountRepository } from '../../../infra/repository/account-memory-repository';
-import { MemoryCategoryRepository } from '../../../infra/repository/category-memory-repository';
+import { CategoryMemoryRepository } from '../../../infra/repository/category-memory-repository';
 import { TransactionMemoryRepository } from '../../../infra/repository/transaction-memory-repository';
 import { AddTransactionUseCase } from '../add-transaction-use-case';
 
 it('should throw forbidden error if the account does not exists', async () => {
   const memoryAccountRepository = new MemoryAccountRepository();
   const memoryTransactionRepository = new TransactionMemoryRepository();
-  const memoryCategoryRepository = new MemoryCategoryRepository();
+  const memoryCategoryRepository = new CategoryMemoryRepository();
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
@@ -41,7 +41,7 @@ it('should throw forbidden error if the user does not have access to the account
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new TransactionMemoryRepository();
-  const memoryCategoryRepository = new MemoryCategoryRepository();
+  const memoryCategoryRepository = new CategoryMemoryRepository();
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
@@ -70,7 +70,7 @@ it('should create transaction', async () => {
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new TransactionMemoryRepository();
-  const memoryCategoryRepository = new MemoryCategoryRepository();
+  const memoryCategoryRepository = new CategoryMemoryRepository();
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
@@ -98,7 +98,7 @@ it('should update account balance', async () => {
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new TransactionMemoryRepository();
-  const memoryCategoryRepository = new MemoryCategoryRepository();
+  const memoryCategoryRepository = new CategoryMemoryRepository();
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
@@ -125,7 +125,7 @@ it('should throw an error if the category does not exists', async () => {
   });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new TransactionMemoryRepository();
-  const memoryCategoryRepository = new MemoryCategoryRepository();
+  const memoryCategoryRepository = new CategoryMemoryRepository();
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,
@@ -155,7 +155,7 @@ it('should throw an error if the user does not have access to the category', asy
   const category = Category.create({ name: 'category #1', userId: '1' });
   const memoryAccountRepository = new MemoryAccountRepository([account]);
   const memoryTransactionRepository = new TransactionMemoryRepository();
-  const memoryCategoryRepository = new MemoryCategoryRepository([category]);
+  const memoryCategoryRepository = new CategoryMemoryRepository([category]);
   const addTransactionUseCase = new AddTransactionUseCase(
     memoryAccountRepository,
     memoryCategoryRepository,

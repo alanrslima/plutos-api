@@ -42,4 +42,16 @@ export class Transaction {
   getValue(): number {
     return this.value;
   }
+
+  getNotes(): string | undefined {
+    return this.notes;
+  }
+
+  getAccountId(): string {
+    return this.accountId;
+  }
+
+  getCategoryId(): string | undefined {
+    return this.categoryId;
+  }
 }

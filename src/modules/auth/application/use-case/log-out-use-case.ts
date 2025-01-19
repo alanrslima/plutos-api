@@ -1,4 +1,4 @@
-import { UseCase } from '../../../account/application/contract/use-case';
+import { UseCase } from '../../../core/application/contract/use-case';
 import { SessionRepository } from '../contract/repository/session-repository';
 
 export class LogOutUseCase implements UseCase<Input, Output> {

@@ -1,4 +1,4 @@
-import { UseCase } from '../../../account/application/contract/use-case';
+import { UseCase } from '../../../core/application/contract/use-case';
 import { User } from '../../domain/entity/user';
 import { UserAlreadyExistsError } from '../../error/user-already-exists-error';
 import { UserRepository } from '../contract/repository/user-repository';

@@ -1,6 +1,6 @@
 import { type Express, Router } from 'express';
 import { authRoutes } from '../../modules/auth';
-import { accountRoutes } from '../../modules/account';
+import { accountRoutes } from '../../modules/core';
 // import { readdirSync } from "fs";
 
 export default (app: Express): void => {

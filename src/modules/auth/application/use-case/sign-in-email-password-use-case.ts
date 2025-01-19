@@ -1,4 +1,4 @@
-import { UseCase } from '../../../account/application/contract/use-case';
+import { UseCase } from '../../../core/application/contract/use-case';
 import { UserSession } from '../../domain/entity/user-session';
 import { InvalidCredentialsError } from '../../error/invalid-credentials-error';
 import { SessionRepository } from '../contract/repository/session-repository';
